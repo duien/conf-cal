@@ -24,6 +24,11 @@ body
   background: mix($gray, white)
   font-family: 'Droid Serif'
 
+  &.welcome
+    .navigation
+      position: relative
+      border-top: 1px solid white
+    .header
 .navigation
   +gradient-horizontal($orange, $yellow)
   border-bottom: 1px solid white
@@ -135,7 +140,7 @@ img.person
   a
     color: black
     text-decoration: none
-.header
+.metadata
   background: $gray
   padding: 10px
   margin: 10px 10px 0
