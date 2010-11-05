@@ -1,0 +1,8 @@
+%h1 All Sessions
+- @conference_sessions.each do |day, day_sessions|
+  %h2= day
+  - day_sessions.each do |start, conference_sessions|
+    - if conference_sessions.length == 1
+      = render :partial => 'conference_session', :locals => { :conference_session => conference_sessions.first }
+    - else
+      = render :partial => 'aggregate', :locals => { :conference_sessions => conference_sessions }

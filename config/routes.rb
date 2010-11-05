@@ -1,4 +1,6 @@
 ConfCal::Application.routes.draw do
+  resources :time_slots
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -14,8 +16,8 @@ ConfCal::Application.routes.draw do
   #   resources :products
 
   root :to => 'presentations#index'
-  resources :presentations, :only => [:show, :index]
-  match 'presentations/:date/:time/' => 'presentations#index', :as => 'presentations_by_date_time'
+  resources :conference_sessions, :only => [:show, :index]
+  match 'conference_sessions/:date/:time/' => 'presentations#index', :as => 'conference_sessions_by_date_time'
 
   # Sample resource route with options:
   #   resources :products do

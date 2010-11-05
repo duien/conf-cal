@@ -1,0 +1,12 @@
+.conference_session
+  .time.meta
+    = time_link(conference_session.start_time, format_time(conference_session))
+  .location.meta
+    = conference_session.location
+  .summary
+    = link_to( conference_session.summary, conference_session )
+  .presenters.meta
+    = conference_session.presenters
+  .going.meta
+    %image.person{ :src => '/images/person-green-24.png' }
+    5 people going, 3 friends

@@ -1,0 +1,13 @@
+%h1= @conference_session.summary
+.header
+  .presenters.meta
+    = @conference_session.presenters
+  .time.meta
+    = time_link(@conference_session.start_time, format_time(@conference_session, :include_day => true))
+.details
+  .description
+    = simple_format @conference_session.description
+    -# %pre= @conference_session.description
+  .going
+
+

@@ -1,8 +1,0 @@
-%h1 All Presentations
-- @presentations.each do |day, day_presentations|
-  %h2= day
-  - day_presentations.each do |start, presentations|
-    - if presentations.length == 1
-      = render :partial => 'presentation', :locals => { :presentation => presentations.first }
-    - else
-      = render :partial => 'aggregate', :locals => { :presentations => presentations }

@@ -1,0 +1,10 @@
+= form_for @time_slot do |f|
+  -if @time_slot.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@time_slot.errors.count, "error")} prohibited this time_slot from being saved:"
+      %ul
+        - @time_slot.errors.full_messages.each do |msg|
+          %li= msg
+
+  .actions
+    = f.submit 'Save'

@@ -7,12 +7,12 @@
   %body
     .navigation
       %ul
-        %li.popular<>
+        %li.presentations.current<>
           .block<>
-            = link_to('Popular', '/')
-        %li.schedule.current<>
+            = link_to('Sessions', '/presentations')
+        %li.schedule<>
           .block<>
-            = link_to('Schedule', '/presentations')
+            = link_to('Schedule', '/schedule')
         %li.friends<>
           .block<>
             = link_to('Friends', '/friends')

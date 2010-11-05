@@ -10,9 +10,9 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101104235406) do
+ActiveRecord::Schema.define(:version => 20101105190308) do
 
-  create_table "presentations", :force => true do |t|
+  create_table "conference_sessions", :force => true do |t|
     t.string   "summary"
     t.string   "uid"
     t.text     "description"
@@ -20,6 +20,11 @@ ActiveRecord::Schema.define(:version => 20101104235406) do
     t.string   "presenters"
     t.datetime "start_time"
     t.datetime "end_time"
+  end
+
+  create_table "time_slots", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", :force => true do |t|

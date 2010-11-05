@@ -1,0 +1,17 @@
+%h1 Listing time_slots
+
+%table
+  %tr
+    %th
+    %th
+    %th
+
+  - @time_slots.each do |time_slot|
+    %tr
+      %td= link_to 'Show', time_slot
+      %td= link_to 'Edit', edit_time_slot_path(time_slot)
+      %td= link_to 'Destroy', time_slot, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Time slot', new_time_slot_path
