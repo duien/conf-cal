@@ -1,1 +1,13 @@
-Show
+%h1= @presentation.summary
+.header
+  .presenters.meta
+    = @presentation.presenters
+  .time.meta
+    = time_link(@presentation.start_time, format_time(@presentation, :include_day => true))
+.details
+  .description
+    = simple_format @presentation.description
+    -# %pre= @presentation.description
+  .going
+
+

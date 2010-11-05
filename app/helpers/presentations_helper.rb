@@ -3,7 +3,7 @@ module PresentationsHelper
     link_to( text, presentations_by_date_time_path( time.strftime('%Y-%m-%d'), time.strftime('%H:%M') ))
   end
 
-  def format_time( presentation )
-    "#{presentation.start_time.strftime('%I:%M %p')} - #{presentation.end_time.strftime('%I:%M %p')}"
+  def format_time( presentation, options = {} )
+    "#{options[:include_day] ? "#{presentation.start_time.strftime('%A')} " : '' }#{presentation.start_time.strftime('%I:%M %p')} - #{presentation.end_time.strftime('%I:%M %p')}"
   end
 end

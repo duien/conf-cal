@@ -100,30 +100,59 @@ img.person
   margin: 10px
   overflow: auto
   +round(10px)
-  .meta
-    font-family: 'Droid Sans'
-    font-size: 80%
-    color: darken($gray, 40%)
-    a
-      color: darken($gray,40%)
-      text-decoration: none
-  .time, .location, .presenters, .going
-    // width: auto
-    width: 50%
-  .time
-    float: left
-    padding-bottom: 5px
-  .location
-    float: right
-    text-align: right
-  .presenters
-    padding-top: 5px
-    float: left
-  .going
-    float: right
-    text-align: right
-    // line-height: 18px
-  .summary
-    font-family: 'Droid Serif'
-    font-size: 120%
+  .option
     clear: both
+    border-top: 1px solid darken($gray, 10%)
+    padding: 10px 0
+    overflow: auto
+.meta
+  font-family: 'Droid Sans'
+  font-size: 80%
+  color: darken($gray, 40%)
+  a
+    color: darken($gray,40%)
+    text-decoration: none
+.time, .location, .presenters, .going
+  // width: auto
+  width: 50%
+.time
+  float: left
+  padding-bottom: 5px
+.location
+  float: right
+  text-align: right
+.presenters
+  padding-top: 5px
+  float: left
+.going
+  float: right
+  text-align: right
+  // line-height: 18px
+.summary
+  font-family: 'Droid Serif'
+  font-size: 120%
+  clear: both
+  a
+    color: black
+    text-decoration: none
+.header
+  background: $gray
+  padding: 10px
+  margin: 10px 10px 0
+  overflow: auto
+  +round-top(10px)
+  border-bottom: 1px solid darken($gray, 10%)
+  .meta
+    padding: 0
+    font-size: 100%
+  .meta.time
+    float: right
+    text-align: right
+.details
+  background: mix(mix($gray, white), $gray)
+  padding: 10px
+  margin: 0 10px 10px
+  overflow: auto
+  +round-bottom(10px)
+  .description p
+    padding-bottom: 10px

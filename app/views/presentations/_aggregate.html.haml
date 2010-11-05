@@ -1,6 +1,16 @@
 .presentation
   .time.meta
     = time_link(presentations.first.start_time, format_time(presentations.first))
-  .summary
-    %em Choose a Presentation
+  - presentations.each do |presentation|
+    .option
+      -# .location.meta
+      -#   = presentation.location
+      .summary
+        = link_to( presentation.summary, presentation )
+      .presenters.meta
+        = presentation.presenters
+      .going.meta
+        %image.person{ :src => '/images/person-green-24.png' }
+        5 people going, 3 friends
+
 
