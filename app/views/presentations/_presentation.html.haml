@@ -1,0 +1,12 @@
+.presentation
+  .time.meta
+    = time_link(presentation.start_time, format_time(presentation))
+  .location.meta
+    = presentation.location
+  .summary
+    = presentation.summary
+  .presenters.meta
+    = presentation.presenters
+  .going.meta
+    %image.person{ :src => '/images/person-green-24.png' }
+    5 people going, 3 friends

@@ -1,0 +1,21 @@
+!!!
+%html
+  %head
+    = stylesheet_link_tag 'application'
+    = stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Droid+Sans:regular,bold&subset=latin'
+    = stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Droid+Serif:regular,italic,bold,bolditalic&subset=latin'
+  %body
+    .navigation
+      %ul
+        %li.popular<>
+          .block<>
+            = link_to('Popular', '/')
+        %li.schedule.current<>
+          .block<>
+            = link_to('Schedule', '/presentations')
+        %li.friends<>
+          .block<>
+            = link_to('Friends', '/friends')
+
+    .main
+      = yield

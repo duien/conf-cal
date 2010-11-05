@@ -1,0 +1,111 @@
+address, blockquote, body, center, dir, div, dl, fieldset, form, h1, h2, h3, h4, h5, h6, hr, isindex, menu, noframes, noscript, ol, p, pre, table, ul {
+  margin: 0;
+  padding: 0; }
+
+.clear {
+  clear: both; }
+
+body {
+  background: #deebee;
+  font-family: "Droid Serif"; }
+
+.navigation {
+  background: -webkit-gradient(linear, left top, right top, from(#d14f00), to(#ffe617));
+  color: white;
+  position: fixed;
+  width: 100%; }
+  .navigation ul {
+    list-style-type: none;
+    text-align: center; }
+    .navigation ul li {
+      display: inline;
+      font-family: "Droid Sans";
+      font-size: 120%; }
+      .navigation ul li .block {
+        padding: 5px;
+        display: inline-block;
+        border-left: 1px solid white; }
+      .navigation ul li a {
+        color: white;
+        text-decoration: none;
+        display: inline-block;
+        background-repeat: no-repeat;
+        background-position: left top;
+        height: 32px;
+        line-height: 37px;
+        margin: 5px;
+        padding-left: 37px;
+        padding-right: 5px; }
+        .navigation ul li a:hover {
+          color: black; }
+      .navigation ul li.current .block {
+        background-color: black; }
+        .navigation ul li.current .block a:hover {
+          color: white; }
+      .navigation ul li.popular a {
+        background-image: url("/images/popular.png"); }
+        .navigation ul li.popular a:hover {
+          background-image: url("/images/popular-black.png"); }
+      .navigation ul li.schedule a {
+        background-image: url("/images/schedule.png"); }
+        .navigation ul li.schedule a:hover {
+          background-image: url("/images/schedule-black.png"); }
+      .navigation ul li.friends a {
+        background-image: url("/images/friends.png"); }
+        .navigation ul li.friends a:hover {
+          background-image: url("/images/friends-black.png"); }
+      .navigation ul li.friends .block {
+        border-right: 1px solid white; }
+
+.main {
+  padding-top: 60px;
+  max-width: 900px;
+  margin: 0 auto; }
+
+h1 {
+  margin: 10px; }
+
+h2 {
+  background: black;
+  color: #deebee;
+  padding: 5px 15px;
+  margin-top: 20px;
+  font-family: "Droid Sans";
+  font-weight: normal; }
+
+img.person {
+  vertical-align: text-bottom; }
+
+.presentation {
+  background: #bdd7de;
+  padding: 10px;
+  margin: 10px;
+  overflow: auto;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px; }
+  .presentation .meta {
+    font-family: "Droid Sans";
+    font-size: 80%;
+    color: #457b8a; }
+    .presentation .meta a {
+      color: #457b8a;
+      text-decoration: none; }
+  .presentation .time, .presentation .location, .presentation .presenters, .presentation .going {
+    width: 50%; }
+  .presentation .time {
+    float: left;
+    padding-bottom: 5px; }
+  .presentation .location {
+    float: right;
+    text-align: right; }
+  .presentation .presenters {
+    padding-top: 5px;
+    float: left; }
+  .presentation .going {
+    float: right;
+    text-align: right; }
+  .presentation .summary {
+    font-family: "Droid Serif";
+    font-size: 120%;
+    clear: both; }

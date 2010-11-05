@@ -13,6 +13,10 @@ ConfCal::Application.routes.draw do
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
 
+  root :to => 'presentations#index'
+  resources :presentations, :only => [:show, :index]
+  match 'presentations/:date/:time/' => 'presentations#index', :as => 'presentations_by_date_time'
+
   # Sample resource route with options:
   #   resources :products do
   #     member do

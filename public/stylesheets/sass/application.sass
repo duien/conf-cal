@@ -1,0 +1,124 @@
+@import 'round'
+
+$ruby: #8c2318
+$gray: #bdd7de
+$white: #f0f0d8
+
+$orange: #d14f00
+$yellow: #ffe617
+
+address, blockquote, body, center, dir, div, dl, fieldset, form, h1, h2, h3, h4, h5, h6, hr, isindex, menu, noframes, noscript, ol, p, pre, table, ul
+  margin: 0
+  padding: 0
+
+.clear
+  clear: both
+
+body
+  background: mix($gray, white)
+  font-family: 'Droid Serif'
+
+.navigation
+  background: -webkit-gradient(linear, left top, right top, from($orange), to($yellow))
+  // background: #999; /* for non-css3 browsers */
+
+  // filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#cccccc', endColorstr='#000000'); /* for IE */
+  // background: -webkit-gradient(linear, left top, left bottom, from(#ccc), to(#000)); /* for webkit browsers */
+  // background: -moz-linear-gradient(top,  #ccc,  #000); /* for firefox 3.6+ */
+  
+  
+  color: white
+  position: fixed
+  width: 100%
+  ul
+    list-style-type: none
+    text-align: center
+    li
+      display: inline
+      font-family: 'Droid Sans'
+      font-size: 120%
+      .block
+        padding: 5px
+        display: inline-block
+        border-left: 1px solid white
+      a
+        color: white
+        text-decoration: none
+        display: inline-block
+        background-repeat: no-repeat
+        background-position: left top
+        height: 32px
+        line-height: 37px
+        margin: 5px
+        padding-left: 37px
+        padding-right: 5px
+        &:hover
+          color: black
+      &.current .block
+        background-color: black
+        a:hover
+          color: white
+
+      &.popular a
+        background-image: url('/images/popular.png')
+        &:hover
+          background-image: url('/images/popular-black.png')
+      &.schedule a
+        background-image: url('/images/schedule.png')
+        &:hover
+          background-image: url('/images/schedule-black.png')
+      &.friends a
+        background-image: url('/images/friends.png')
+        &:hover
+          background-image: url('/images/friends-black.png')
+      &.friends .block
+        border-right: 1px solid white
+.main
+  padding-top: 60px
+  max-width: 900px
+  margin: 0 auto
+h1
+  margin: 10px
+h2
+  background: black
+  color: mix($gray, white)
+  padding: 5px 15px
+  margin-top: 20px
+  font-family: 'Droid Sans'
+  font-weight: normal
+img.person
+  vertical-align: text-bottom
+.presentation
+  background: $gray
+  padding: 10px
+  margin: 10px
+  // border: 4px solid darken($gray, 20%)
+  overflow: auto
+  +round(10px)
+  .meta
+    font-family: 'Droid Sans'
+    font-size: 80%
+    color: darken($gray, 40%)
+    a
+      color: darken($gray,40%)
+      text-decoration: none
+  .time, .location, .presenters, .going
+    // width: auto
+    width: 50%
+  .time
+    float: left
+    padding-bottom: 5px
+  .location
+    float: right
+    text-align: right
+  .presenters
+    padding-top: 5px
+    float: left
+  .going
+    float: right
+    text-align: right
+    // line-height: 18px
+  .summary
+    font-family: 'Droid Serif'
+    font-size: 120%
+    clear: both
