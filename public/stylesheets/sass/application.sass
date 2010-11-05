@@ -7,6 +7,12 @@ $white: #f0f0d8
 $orange: #d14f00
 $yellow: #ffe617
 
+=gradient-horizontal($start_color, $end_color)
+  background: mix($start_color, $end_color) /* for non-css3 browsers */
+  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=1, startColorstr=$start_color, endColorstr=$end_color) /* for IE */
+  background: -webkit-gradient(linear, left top, right top, from($start_color), to($end_color)) /* for webkit browsers */
+  background: -moz-linear-gradient(left,  $start_color,  $end_color) /* for firefox 3.6+ */
+
 address, blockquote, body, center, dir, div, dl, fieldset, form, h1, h2, h3, h4, h5, h6, hr, isindex, menu, noframes, noscript, ol, p, pre, table, ul
   margin: 0
   padding: 0
@@ -19,14 +25,8 @@ body
   font-family: 'Droid Serif'
 
 .navigation
-  background: -webkit-gradient(linear, left top, right top, from($orange), to($yellow))
-  // background: #999; /* for non-css3 browsers */
-
-  // filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#cccccc', endColorstr='#000000'); /* for IE */
-  // background: -webkit-gradient(linear, left top, left bottom, from(#ccc), to(#000)); /* for webkit browsers */
-  // background: -moz-linear-gradient(top,  #ccc,  #000); /* for firefox 3.6+ */
-  
-  
+  +gradient-horizontal($orange, $yellow)
+  border-bottom: 1px solid white
   color: white
   position: fixed
   width: 100%
@@ -63,14 +63,20 @@ body
         background-image: url('/images/popular.png')
         &:hover
           background-image: url('/images/popular-black.png')
+      &.popular.current a:hover
+        background-image: url('/images/popular.png')
       &.schedule a
         background-image: url('/images/schedule.png')
         &:hover
           background-image: url('/images/schedule-black.png')
+      &.schedule.current a:hover
+        background-image: url('/images/schedule.png')
       &.friends a
         background-image: url('/images/friends.png')
         &:hover
           background-image: url('/images/friends-black.png')
+      &.friends.current a:hover
+        background-image: url('/images/friends.png')
       &.friends .block
         border-right: 1px solid white
 .main
@@ -81,7 +87,7 @@ h1
   margin: 10px
 h2
   background: black
-  color: mix($gray, white)
+  color: white
   padding: 5px 15px
   margin-top: 20px
   font-family: 'Droid Sans'
@@ -92,7 +98,6 @@ img.person
   background: $gray
   padding: 10px
   margin: 10px
-  // border: 4px solid darken($gray, 20%)
   overflow: auto
   +round(10px)
   .meta
