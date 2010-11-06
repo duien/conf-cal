@@ -6,7 +6,7 @@ gem 'rails', '3.0.1'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3-ruby', :require => 'sqlite3'
-gem 'twitter-auth', :require => 'twitter_auth/engine', :git => 'git@github.com:duien/twitter-auth.git', :branch => 'rails_3'
+gem 'twitter-auth', :require => 'twitter_auth/engine', :git => 'git://github.com/duien/twitter-auth.git', :branch => 'rails_3'
 gem 'heroku'
 gem 'haml'
 gem 'sass'

@@ -1,5 +1,5 @@
 GIT
-  remote: git@github.com:duien/twitter-auth.git
+  remote: git://github.com/duien/twitter-auth.git
   revision: 30fdb47cc2750b4197b9dfcd131b767d980aae93
   branch: rails_3
   specs:
