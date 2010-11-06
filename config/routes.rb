@@ -1,4 +1,6 @@
 ConfCal::Application.routes.draw do
+  resources :friendships
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
