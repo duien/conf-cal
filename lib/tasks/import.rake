@@ -7,10 +7,9 @@ namespace :ical do
     cals = Icalendar.parse(cal_stream)
     cal = cals.first
     cal.events.each do |event|
-      presentation = Presentation.find_by_uid(event.uid) || Presentation.new
+      presentation = ConferenceSession.find_or_create_by_uid(event.uid)
       presentation.update_attributes(
         :summary => event.summary,
-        :uid => event.uid,
         :description => event.description,
         :location => event.location,
         :start_time => event.start,
