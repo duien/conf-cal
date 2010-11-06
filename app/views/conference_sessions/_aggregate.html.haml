@@ -10,7 +10,10 @@
       .presenters.meta
         = conference_session.presenters
       .going.meta
-        %image.person{ :src => '/images/person-green-24.png' }
-        5 people going, 3 friends
+        -# %image.person{ :src => '/images/person-green-24.png' }
+        - unless conference_session.attendees.empty?
+          .total
+            = pluralize(conference_session.attendees.length, 'person')
+            going
 
 

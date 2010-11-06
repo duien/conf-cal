@@ -5,9 +5,10 @@ class ConferenceSessionsController < ApplicationController
     sessions= if params[:date] and params[:time]
       time = DateTime.parse("#{params[:date]} #{params[:time]}")
       ConferenceSession.all( #:conditions => { :start_time => time } )
-        :conditions => ["datetime(start_time) = datetime(?)", time] )
+        :conditions => ["datetime(start_time) = datetime(?)", time],
+        :include => :attendees )
     else
-      ConferenceSession.all
+      ConferenceSession.all(:include => :attendees)
     end
     sessions = sessions.group_by { |p| p.start_time.strftime('%A') }
     @conference_sessions = sessions.inject({}) do |result, (day, session_list)|
