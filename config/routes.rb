@@ -1,6 +1,4 @@
 ConfCal::Application.routes.draw do
-  resources :time_slots
-
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
