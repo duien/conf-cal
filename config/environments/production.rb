@@ -46,4 +46,13 @@ ConfCal::Application.configure do
 
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
+  TwitterAuth.update_config(
+    :strategy              => "oauth",
+    :authorize_path        => "/oauth/authenticate",
+    :api_timeout           => 10,
+    :remember_for          => 14, # days
+    :base_url              => "https://#{ENV['APIGEE_TWITTER_API_ENDPOINT']}",
+    :oauth_consumer_key    => ENV['OAUTH_CONSUMER_KEY'],
+    :oauth_consumer_secret => ENV['OAUTH_CONSUMER_SECRET']
+  )
 end
