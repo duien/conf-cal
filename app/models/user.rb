@@ -14,9 +14,9 @@ class User < TwitterAuth::GenericUser
   alias :orig_friends :friends
   def friends
     if self.last_updated_friends.nil? or (Time.now - self.last_updated_friends > FRIEND_CACHE_DURATION)
-      self.update_friends
       self.last_updated_friends = Time.now
       self.save!
+      self.update_friends
     end
     orig_friends
   end
