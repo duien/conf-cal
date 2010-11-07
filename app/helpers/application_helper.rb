@@ -7,4 +7,7 @@ module ApplicationHelper
     end
   end
 
+  def current_if_controller( controller_name )
+    controller_name == controller.controller_name ? 'current' : nil
+  end
 end

@@ -7,13 +7,13 @@
   %body
     .navigation
       %ul
-        %li.presentations.current<>
+        %li.presentations{ :class => current_if_controller('conference_sessions') }<>
           .block<>
             = link_to('Sessions', '/conference_sessions')
-        %li.schedule<>
+        %li.schedule{ :class => current_if_controller('schedule') }<>
           .block<>
             = link_to('Schedule', '/schedule')
-        %li.friends<>
+        %li.friends{ :class => current_if_controller('friends') }<>
           .block<>
             = link_to('Friends', '/friends')
 
