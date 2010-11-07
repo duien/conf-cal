@@ -4,9 +4,7 @@ class ConferenceSessionsController < ApplicationController
   def index
     if params[:date] and params[:time]
       time = DateTime.parse("#{params[:date]} #{params[:time]}")
-      @conference_sessions = ConferenceSession.all(
-        :conditions => ["datetime(start_time) = datetime(?)", time],
-        :include => :attendees)
+      @conference_sessions = ConferenceSession.all( :conditions => ["datetime(start_time) = datetime(?)", time], :include => :attendees )
       render 'date_time_index'
     else
       @conference_sessions = ConferenceSession.all(:include => :attendees)
