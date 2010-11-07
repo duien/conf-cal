@@ -123,24 +123,55 @@ img.person
   width: 50%
 .time
   float: left
-  padding-bottom: 5px
 .location
   float: right
   text-align: right
 .presenters
-  padding-top: 5px
   float: left
 .attendees
   float: right
   text-align: right
   // line-height: 18px
+.top_data, .bottom_data
+  overflow: auto
+  clear: both
+.top_data
+  padding-bottom: 5px
+.bottom_data
+  padding-top: 5px
 .summary
   font-family: 'Droid Serif'
   font-size: 120%
   clear: both
+  float: left
   a
     color: black
     text-decoration: none
+.controls
+  float: right
+  width: auto
+  a.attendance
+    display: block
+    padding-right: 32px
+    height: 32px
+    line-height: 38px
+    color: darken($gray, 40%)
+    text-decoration: none
+    font-family: 'Droid Sans'
+    &.yes
+      background: url('/images/schedule-yellow.png')
+      background-repeat: no-repeat
+      background-position: right top
+      background-color: $green
+      color: white
+      +round(5px)
+    &.no
+      background: url('/images/schedule.png')
+      background-repeat: no-repeat
+      background-position: top right
+      color: $gray
+      &:hover
+        color: darken($gray, 40%)
 .metadata
   background: $gray
   padding: 10px
@@ -158,30 +189,18 @@ img.person
     float: right
     text-align: right
   .summary
+    padding-top: 5px
     float: left
     width: auto
-  .controls
-    float: right
-    width: auto
-    a
-      display: block
-      background: mix($green, white)
-      border: 2px solid $green
-      font-family: 'Droid Sans'
-      padding: 5px
-      color: darken($green, 10%)
-      text-decoration: none
-
-.conference_session.going
-  background: $green
-  .meta, .meta a
-    color: darken($green, 40%)
-  .metadata
-    background: $green
-    border-bottom: 1px solid darken($green, 10%)
-
+    font-weight: bold
+    font-size: 140%
+  .controls a.attendance.yes
+    padding-left: 10px
+    padding-right: 34px
+    background-position: 100% 2px
+    height: 36px
 .details
-  background: mix(mix($gray, white), $gray)
+  background: $gray
   padding: 10px
   margin: 0 10px 10px
   overflow: auto

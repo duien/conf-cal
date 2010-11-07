@@ -9,8 +9,10 @@
     .summary
       = session.summary
     .controls
-      .choose
-        %a{ :href => '/' } I'm Going
+      - if session.attendees.include?(current_user)
+        %a.attendance.yes{ :href => '/' } I'm Going
+      - else
+        %a.attendance.no{ :href => '/' } Choose this session
   .details
     .description
       = simple_format session.description

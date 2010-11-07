@@ -1,19 +1,26 @@
 .conference_session
-  .time.meta
-    = time_link(conference_sessions.first.start_time, format_time(conference_sessions.first))
+  .top_data
+    .time.meta
+      = time_link(conference_sessions.first.start_time, format_time(conference_sessions.first))
   - conference_sessions.each do |conference_session|
     .option
       -# .location.meta
       -#   = presentation.location
       .summary
         = link_to( conference_session.summary, conference_session )
-      .presenters.meta
-        = conference_session.presenters
-      .attendees.meta
-        -# %image.person{ :src => '/images/person-green-24.png' }
-        - unless conference_session.attendees.empty?
-          .total
-            = pluralize(conference_session.attendees.length, 'person')
-            going
+      .controls
+        - if conference_session.attendees.include?(current_user)
+          %a.attendance.yes{ :href => '/' }
+        - else
+          %a.attendance.no{ :href => '/' }
+      .bottom_data
+        .presenters.meta
+          = conference_session.presenters
+        .attendees.meta
+          -# %image.person{ :src => '/images/person-green-24.png' }
+          - unless conference_session.attendees.empty?
+            .total
+              = pluralize(conference_session.attendees.length, 'person')
+              going
 
 
