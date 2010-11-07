@@ -5,6 +5,8 @@ class User < TwitterAuth::GenericUser
   has_many :friendships
   has_many :friends, :through => :friendships
 
+  scope :attending, lambda { |cs| joins(:attendances).where(:attendances => {:conference_session_id => cs.id}) }
+
   FRIEND_CACHE_DURATION = 10.minutes
 
   # Update cached friends if the cache has timed out
