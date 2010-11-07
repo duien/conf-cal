@@ -1,10 +1,17 @@
 %h1 Your Friends
 - if @friends.empty?
-  Soooo... it turns out you don't have any friends.  Sorry, man.  :-(
+  %p Soooo... it turns out you don't have any friends.  Sorry, man.  :-(
+  %p 
+    Maybe you could
+    %a{:href => "http://www.twitter.com"}make a tweet
+    suggesting folks sign up?  Anybody you follow on Twitter who joins
+    RubyConfirmate will automatically be added here.
 - else
-  You have SO MANY FRIENDS (on Twitter, who are also using this as-yet-to-be-named app):
   %ul
     - @friends.each do |friend|
       %li
         %img{ :src => friend.profile_image_url }
         = "#{friend.login} (#{friend.name})"
+  Anybody you follow on
+  %a{:href => "http://www.twitter.com"}the twitters
+  who joins RubyConfirmate will automatically show up on this page.
