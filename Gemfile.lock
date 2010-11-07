@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/duien/twitter-auth.git
-  revision: cde8862e013b289094dc9191c088bc74f7f97929
+  revision: cde8862
   branch: rails_3
   specs:
     twitter-auth (0.1.22)
