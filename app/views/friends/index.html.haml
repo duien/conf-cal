@@ -1,0 +1,10 @@
+%h1 Your Friends
+- if @friends.empty?
+  Soooo... it turns out you don't have any friends.  Sorry, man.  :-(
+- else
+  You have SO MANY FRIENDS (on Twitter, who are also using this as-yet-to-be-named app):
+  %ul
+    - @friends.each do |friend|
+      %li
+        %img{ :src => friend.profile_image_url }
+        = "#{friend.login} (#{friend.name})"
