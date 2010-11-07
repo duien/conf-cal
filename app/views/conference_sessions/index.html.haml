@@ -1,5 +1,2 @@
 %h1 All Sessions
-- @conference_sessions.each do |day, day_sessions|
-  %h2= day
-  - day_sessions.each do |start, conference_sessions|
-    = render :partial => 'aggregate', :locals => { :conference_sessions => conference_sessions }
+= render :partial => 'sessions_by_timeslot', :locals => { :all_sessions => @conference_sessions }

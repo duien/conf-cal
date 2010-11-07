@@ -1,0 +1,8 @@
+%h1
+  %img{ :src => @user.profile_image_url }
+  = "#{@user.login} (#{@user.name})"
+
+- if @user.conference_sessions.empty?
+  This user has not selected any conference sessions yet.  Maybe they've been kidnapped?
+- else
+  = render :partial => 'conference_sessions/sessions_by_timeslot', :locals => { :all_sessions => @user.conference_sessions.order(:start_time) }
