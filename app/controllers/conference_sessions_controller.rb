@@ -6,11 +6,10 @@ class ConferenceSessionsController < ApplicationController
       time = DateTime.parse("#{params[:date]} #{params[:time]}")
       @conference_sessions = ConferenceSession.all(
         :conditions => ["datetime(start_time) = datetime(?)", time],
-        :include => :attendees,
-        :order => :start_time)
+        :include => :attendees)
       render 'date_time_index'
     else
-      @conference_sessions = ConferenceSession.all(:include => :attendees, :order => :start_time)
+      @conference_sessions = ConferenceSession.all(:include => :attendees)
       render
     end
   end
