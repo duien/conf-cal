@@ -1,0 +1,21 @@
+%h1 Sessions for #{format_time(@conference_sessions.first, :include_day => true)}
+
+- @conference_sessions.each do |session|
+  .metadata
+    .presenters.meta
+      = session.presenters
+    .location.meta
+      = session.location
+    .summary
+      = session.summary
+    .controls
+      .choose
+        %a{ :href => '/' } I'm Going
+  .details
+    .description
+      = simple_format session.description
+    .attendees
+      %ul
+        - session.attendees.each do |attendee|
+          %li #{attendee.name} (#{attendee.login})
+      

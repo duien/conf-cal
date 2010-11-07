@@ -8,6 +8,9 @@
   .description
     = simple_format @conference_session.description
     -# %pre= @conference_session.description
-  .going
+  .attendees
+    %ul
+      - @conference_session.attendees.each do |attendee|
+        %li #{attendee.name} (#{attendee.login})
 
 

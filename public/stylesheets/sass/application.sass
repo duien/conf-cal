@@ -3,6 +3,7 @@
 $ruby: #8c2318
 $gray: #bdd7de
 $white: #f0f0d8
+$green: #98bf3e
 
 $orange: #d14f00
 $yellow: #ffe617
@@ -117,7 +118,7 @@ img.person
   a
     color: darken($gray,40%)
     text-decoration: none
-.time, .location, .presenters, .going
+.time, .location, .presenters, .attendees
   // width: auto
   width: 50%
 .time
@@ -129,7 +130,7 @@ img.person
 .presenters
   padding-top: 5px
   float: left
-.going
+.attendees
   float: right
   text-align: right
   // line-height: 18px
@@ -149,10 +150,36 @@ img.person
   border-bottom: 1px solid darken($gray, 10%)
   .meta
     padding: 0
-    font-size: 100%
+    // font-size: 100%
+  .meta.presenters
+    padding-bottom: 5px
   .meta.time
+    padding-bottom: 5px
     float: right
     text-align: right
+  .summary
+    float: left
+    width: auto
+  .controls
+    float: right
+    width: auto
+    a
+      display: block
+      background: mix($green, white)
+      border: 2px solid $green
+      font-family: 'Droid Sans'
+      padding: 5px
+      color: darken($green, 10%)
+      text-decoration: none
+
+.conference_session.going
+  background: $green
+  .meta, .meta a
+    color: darken($green, 40%)
+  .metadata
+    background: $green
+    border-bottom: 1px solid darken($green, 10%)
+
 .details
   background: mix(mix($gray, white), $gray)
   padding: 10px
