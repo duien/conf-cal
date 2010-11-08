@@ -14,4 +14,5 @@ group :development, :test do
   gem 'wirble'
   gem 'rspec-rails'
   gem 'haml-rails'
+  gem 'taps'
 end
