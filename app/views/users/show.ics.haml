@@ -1,0 +1,13 @@
+:ruby
+  cal = Icalendar::Calendar.new
+  @user.conference_sessions.each do |cs|
+    cal.event do
+      dtstart     cs.start_time.strftime("%Y%m%dT%H%M%S")   # Holy crap WTF Icalendar can't format a frickin' date AAAUUUUGH
+      dtend       cs.end_time.strftime("%Y%m%dT%H%M%S")
+      summary     cs.summary
+      description cs.description
+      location    cs.location
+    end
+  end
+  cal.publish
+= cal.to_ical.gsub("\r", '')  # Ugh, is there a way to tell Icalendar to use unix instead of DOS line endings?
