@@ -21,7 +21,7 @@
 %form#tweeter{ :action => '/twitter/post' }
   .tweet Type your message
   %textarea{ :id => 'tweeter_text', :name => 'text', :rows => 5, :cols => 35, :size => 140 } 
-    See what #rubyconf sessions I'm attending on @rubyconfirmate: #{user_url(current_user)}
+    See what #rubyconf sessions I'm attending on @rubyconfirmate: #{shorten( user_url(current_user) )}
   %input{ :id => 'tweeter_button', :type => 'submit', :value => 'Tweet it!' }
 
 

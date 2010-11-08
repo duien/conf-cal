@@ -3,4 +3,5 @@ db/*.sqlite3
 log/*.log
 tmp/**/*
 config/twitter_auth.yml
+config/bitly.yml
 public/stylesheets/*.css

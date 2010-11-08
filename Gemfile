@@ -10,6 +10,7 @@ gem 'haml'
 gem 'sass'
 gem 'icalendar'
 gem 'hassle', :git => 'git://github.com/koppen/hassle.git'
+gem 'bitly'
 
 group :development, :test do
   gem 'wirble'

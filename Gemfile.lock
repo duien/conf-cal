@@ -47,8 +47,12 @@ GEM
     activesupport (3.0.1)
     arel (1.0.1)
       activesupport (~> 3.0.0)
+    bitly (0.5.3)
+      crack (>= 0.1.4)
+      httparty (>= 0.5.2)
     builder (2.1.2)
     configuration (1.1.0)
+    crack (0.1.8)
     diff-lcs (1.1.2)
     erubis (2.6.6)
       abstract (>= 1.0.0)
@@ -63,6 +67,8 @@ GEM
       json_pure (>= 1.2.0, < 1.5.0)
       launchy (~> 0.3.2)
       rest-client (>= 1.4.0, < 1.7.0)
+    httparty (0.6.1)
+      crack (= 0.1.8)
     i18n (0.4.2)
     icalendar (1.1.5)
     json_pure (1.4.6)
@@ -131,6 +137,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bitly
   haml
   haml-rails
   hassle!

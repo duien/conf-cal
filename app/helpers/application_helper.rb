@@ -15,4 +15,8 @@ module ApplicationHelper
     raw "#{link_to user.name, user_url(user)} (<a href='http://twitter.com/#{user.login}'>@#{user.login}</a>)"
   end
 
+  def shorten( url )
+    BITLY.shorten( user_url(current_user) ).short_url
+  end
+
 end
