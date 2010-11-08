@@ -8,13 +8,10 @@ module ConferenceSessionsHelper
   end
 
   def friends_text( conference_session, options = {} )
-    # you and 3 friends going
-    # you, 2 friends, and 5 others going
-    # you and 5 others going
-    # you're going
-    # 1 friend and 5 others going
-    # 4 people going
-    # 2 friends going
+    unless current_user
+      total_attendees = conference_session.attendees.length
+      return total_attendees > 0 ? "#{pluralize(total_attendees, 'person')} going" : ''
+    end
 
     attending = conference_session.attendees.include? current_user
     total_attendees = conference_session.attendees.length
@@ -43,6 +40,11 @@ module ConferenceSessionsHelper
   end
 
   def friend_list( conference_session )
+    unless current_user
+      total_attendees = conference_session.attendees.length
+      return total_attendees > 0 ? [pluralize(total_attendees, 'person')] : []
+    end
+
     attending = conference_session.attendees.include? current_user
     total_attendees = conference_session.attendees.length
     friends_attending = current_user.friends.attending(conference_session) || []
