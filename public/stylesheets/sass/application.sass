@@ -30,6 +30,12 @@ body
       position: relative
       border-top: 1px solid white
     .header
+.site_header
+  background: black
+  h1
+    color: white
+    margin: 0
+    padding: 20px
 .navigation
   +gradient-horizontal($orange, $yellow)
   border-bottom: 1px solid white
@@ -86,7 +92,7 @@ body
       &.friends .block
         border-right: 1px solid white
 .main
-  padding-top: 60px
+  padding: 60px 0
   max-width: 900px
   margin: 0 auto
 h1
@@ -114,6 +120,8 @@ img.person
     border-top: 1px solid darken($gray, 10%)
     padding: 10px 0
     overflow: auto
+    &:last-child
+      padding-bottom: 0
   &.choose
     background: mix(mix($gray, white), $gray)
     .option
@@ -235,3 +243,20 @@ img.person
       a
         color: darken($gray, 40%)
         text-decoration: none
+.current_user
+  position: fixed
+  bottom: 0
+  width: 100%
+  background: black
+  color: white
+  border-top: 1px solid white
+  font-family: 'Droid Sans'
+  .info
+    padding: 10px
+    text-align: right
+  a
+    color: white
+    text-decoration: none
+    &.logout
+      color: darken($gray, 30%)
+      text-decoration: underline
