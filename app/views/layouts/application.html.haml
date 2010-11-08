@@ -4,6 +4,10 @@
     = stylesheet_link_tag 'application'
     = stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Droid+Sans:regular,bold&subset=latin'
     = stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Droid+Serif:regular,italic,bold,bolditalic&subset=latin'
+
+    = javascript_include_tag 'https://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js'
+    = javascript_include_tag :defaults
+
   %body{ :class => controller.controller_name }
     = yield :above_nav
     .navigation

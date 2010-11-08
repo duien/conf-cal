@@ -14,4 +14,15 @@ class ConferenceSessionsController < ApplicationController
   def show
     @conference_session = ConferenceSession.find(params[:id])
   end
+
+  # Crappy non-RESTful method to return a div for a particular timeslot.  :-(
+  #
+  def for
+    timeslot = Time.parse(params[:timeslot])
+    timeslot = (timeslot + timeslot.gmtoff).utc  # Holy hell this is nasty.  Why doesn't Time.utc work like Time.parse?
+    render :partial => 'aggregate', 
+           :locals => { 
+              :conference_sessions => ConferenceSession.all( :conditions => ["datetime(start_time) = datetime(?)", timeslot] ) 
+           }
+  end
 end

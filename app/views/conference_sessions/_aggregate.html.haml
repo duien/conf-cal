@@ -1,9 +1,11 @@
 - show_controls = true if show_controls.nil?
+- time = conference_sessions.first.start_time
+- div_id = "timeslot_#{time.to_s(:number)}"
 
-.conference_session
+.conference_session{ :id => div_id }
   .top_data
     .time.meta
-      = time_link(conference_sessions.first.start_time, format_time(conference_sessions.first))
+      = time_link(time, format_time(conference_sessions.first))
   - conference_sessions.each do |conference_session|
     .option
       .summary
@@ -11,9 +13,9 @@
       - if show_controls and current_user
         .controls
           - if conference_session.attendees.include?(current_user)
-            %a.attendance.yes{ :href => '/' }
+            %a.attendance.yes{ :href => 'javascript:void(0)' }
           - else
-            %a.attendance.no{ :href => '/' }
+            %a.attendance.no{ :href => 'javascript:void(0)', :onclick => "mark_attending(#{current_user.id}, #{conference_session.id}, '#{time.to_s(:number)}')" }
       .bottom_data
         .presenters.meta
           = conference_session.presenters
