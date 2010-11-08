@@ -24,3 +24,18 @@ function mark_not_attending(aid, time, url) {
     }
   });
 }
+
+$().ready(function() {
+  $('.summary a')
+    .bind('ajax:before', function(el) {
+      var desc = $(el.target).parents('.option').find('.description:visible');
+      if (desc.length > 0) {
+        desc.slideUp();
+        return false;
+      }
+    })
+    .bind('ajax:success', function(el, data, status, xhr) {
+      var conference_session = data.conference_session
+      $("#conference_session_" + conference_session.id + " > .description").html(conference_session.description).slideDown();
+    });
+});

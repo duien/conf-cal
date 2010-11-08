@@ -1,18 +1,21 @@
 class ConferenceSessionsController < ApplicationController
 
+  respond_to :json, :except => [ :for ]
+  respond_to :html
+
   def index
     if params[:date] and params[:time]
       time = DateTime.parse("#{params[:date]} #{params[:time]}")
-      @conference_sessions = ConferenceSession.all( :conditions => { :start_time => time }, :include => :attendees )
-      render 'date_time_index'
+      respond_with(@conference_sessions = ConferenceSession.all( :conditions => { :start_time => time }, :include => :attendees )) do |format|
+        format.html { render 'date_time_index' }
+      end
     else
-      @conference_sessions = ConferenceSession.all(:include => :attendees)
-      render
+      respond_with(@conference_sessions = ConferenceSession.all(:include => :attendees))
     end
   end
 
   def show
-    @conference_session = ConferenceSession.find(params[:id])
+    respond_with(@conference_session = ConferenceSession.find(params[:id]))
   end
 
   # Crappy non-RESTful method to return a div for a particular timeslot.  :-(
