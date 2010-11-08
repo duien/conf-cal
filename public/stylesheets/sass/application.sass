@@ -26,15 +26,37 @@ body
   font-family: 'Droid Serif'
 
   &.welcome
-    .navigation
-      position: relative
-      border-top: 1px solid white
-    .site_header
-      background: black
-      h1
+    ul.features
+      list-style-type: none
+      width: 840px
+      overflow: auto
+      margin: 0 auto
+      li
+        background: mix($gray, black)
+        +round(10px)
+        display: block
+        float: left
+        width: 380px
         color: white
-        margin: 0
-        padding: 20px
+        margin: 10px
+        padding: 10px
+        padding-bottom: 25px
+        text-align: center
+        font-family: 'Droid Sans'
+        font-size: 140%
+        .text
+          padding: 5px 0 15px 0
+        img
+          +round(10px)
+        &.full
+          width: 800px
+    .big
+      font-size: 140%
+      text-align: center
+      padding-top: 25px
+      clear: both
+      a
+        color: darken($gray, 40%)
 p
   padding-bottom: 10px
 .navigation

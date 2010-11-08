@@ -1,5 +1,21 @@
-- content_for :above_nav do
+-# - content_for :above_nav do
   .site_header
     %h1 Welcome to RubyConfirmate
 
-Welcome text.
+%h1 Why use RubyConfirmate?
+%ul.features<>
+  %li<>
+    .text Compare sessions for a time slot
+    = image_tag('compare_sessions.png')
+  %li<>
+    .text See who's going to what
+    = image_tag('see_friends.png')
+  %li.full<>
+    .text Keep track of the sessions you're going to
+    = image_tag('track_sessions.png')
+%p.big
+  Get started now! You can
+  = link_to('browse sessions', conference_sessions_path)
+  or
+  = succeed '.' do
+    = link_to('see who you know', friends_path)
