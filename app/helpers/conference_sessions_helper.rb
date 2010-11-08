@@ -14,7 +14,7 @@ module ConferenceSessionsHelper
     end
 
     friends = current_user.friends
-    friends_attending = (conference_session.attendees - friends - [current_user]).length
+    friends_attending = (conference_session.attendees & friends).length
 
     attending = conference_session.attendees.include? current_user
     total_attendees = conference_session.attendees.length
