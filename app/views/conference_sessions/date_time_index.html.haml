@@ -15,9 +15,10 @@
         %a.attendance.no{ :href => '/' } Choose this session
   .details
     .description
-      = simple_format session.description
+      = simple_format @conference_session.description, {}, :sanitize => false
     .attendees
-      %ul
-        - session.attendees.each do |attendee|
-          %li #{attendee.name} (#{attendee.login})
-      
+      - unless session.attendees.empty? || (session.attendees.length == 1 and session.attendees.include? current_user)
+        %h3 Who's Going?
+        %ul
+          - friend_list( session ).each do |friend|
+            %li= friend

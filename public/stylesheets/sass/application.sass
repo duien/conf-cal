@@ -191,19 +191,39 @@ img.person
   .summary
     padding-top: 5px
     float: left
-    width: auto
+    width: 80%
     font-weight: bold
     font-size: 140%
-  .controls a.attendance.yes
-    padding-left: 10px
-    padding-right: 34px
-    background-position: 100% 2px
-    height: 36px
+  .controls
+    width: 20%
+    a.attendance.yes
+      padding-left: 10px
+      padding-right: 34px
+      background-position: 100% 2px
+      height: 36px
+      width: auto
+      float: right
 .details
   background: $gray
   padding: 10px
   margin: 0 10px 10px
   overflow: auto
   +round-bottom(10px)
-  .description p
-    padding-bottom: 10px
+  .description
+    float: left
+    width: 80%
+    p
+      padding-bottom: 10px
+  .attendees
+    float: right
+    width: 20%
+    h3
+      font-family: 'Droid Sans'
+      color: darken($gray, 40%)
+      margin-bottom: 5px
+    ul
+      list-style-type: none
+      color: darken($gray, 40%)
+      a
+        color: darken($gray, 40%)
+        text-decoration: none

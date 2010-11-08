@@ -41,4 +41,21 @@ module ConferenceSessionsHelper
       text.to_sentence + " going"
     end
   end
+
+  def friend_list( conference_session )
+    attending = conference_session.attendees.include? current_user
+    total_attendees = conference_session.attendees.length
+    friends_attending = current_user.friends.attending(conference_session) || []
+    non_friends_attending = total_attendees - friends_attending.length
+    non_friends_attending -= 1 if attending
+    
+    friends = friends_attending.collect{ |f| display_name(f) }
+    if friends.length > 0
+      friends << "... and #{pluralize(non_friends_attending, 'other')}" if non_friends_attending > 0
+    else
+      friends << pluralize(non_friends_attending, 'person')
+    end
+    friends
+
+  end
 end
