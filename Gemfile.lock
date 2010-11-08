@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/duien/twitter-auth.git
-  revision: fe9cba4f8a2466057835e6a3d947c62f4ced4c63
+  revision: 2e413f1cd74df2b3c2ac5991d12bc838cdd4cee4
   branch: rails_3
   specs:
     twitter-auth (0.1.22)
@@ -59,7 +59,7 @@ GEM
       activesupport (~> 3.0)
       haml (~> 3.0)
       railties (~> 3.0)
-    heroku (1.12.1)
+    heroku (1.12.2)
       json_pure (>= 1.2.0, < 1.5.0)
       launchy (~> 0.3.2)
       rest-client (>= 1.4.0, < 1.7.0)
