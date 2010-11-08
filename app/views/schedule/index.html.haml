@@ -1,0 +1,13 @@
+- sessions_by_timeslot(@all_sessions).each do |day, day_sessions|
+  %h2= day
+  - day_sessions.each do |start, timeslot_sessions|
+    - if session = timeslot_sessions.detect{ |s| s.attendees.include? current_user }
+      = render :partial => 'conference_sessions/aggregate', :locals => { :conference_sessions => [session], :show_controls => false }
+    - else
+      .conference_session.choose
+        .top_data
+          .time.meta
+            = time_link(timeslot_sessions.first.start_time, format_time(timeslot_sessions.first))
+        .option
+          .summary
+            %em= time_link(timeslot_sessions.first.start_time, 'Choose a session')

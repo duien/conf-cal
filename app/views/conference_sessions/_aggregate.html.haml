@@ -1,20 +1,23 @@
+- show_controls = true if show_controls.nil?
+
 .conference_session
   .top_data
     .time.meta
       = time_link(conference_sessions.first.start_time, format_time(conference_sessions.first))
   - conference_sessions.each do |conference_session|
     .option
-      -# .location.meta
-      -#   = presentation.location
       .summary
         = link_to( conference_session.summary, conference_session )
-      .controls
-        - if conference_session.attendees.include?(current_user)
-          %a.attendance.yes{ :href => '/' }
-        - else
-          %a.attendance.no{ :href => '/' }
+      - if show_controls
+        .controls
+          - if conference_session.attendees.include?(current_user)
+            %a.attendance.yes{ :href => '/' }
+          - else
+            %a.attendance.no{ :href => '/' }
       .bottom_data
         .presenters.meta
           = conference_session.presenters
+          \-
+          = conference_session.location
         .attendees.meta
-          = friends_text( conference_session )
+          = friends_text( conference_session, :hide_self => !show_controls )

@@ -20,6 +20,7 @@ ConfCal::Application.routes.draw do
   resources :conference_sessions, :only => [:show, :index]
   match 'conference_sessions/:date/:time/' => 'conference_sessions#index', :as => 'conference_sessions_by_date_time'
   match 'friends' => 'friends#index'
+  match 'schedule' => 'schedule#index'
 
   # Sample resource route with options:
   #   resources :products do
