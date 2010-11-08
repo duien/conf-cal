@@ -3,7 +3,7 @@ class ConferenceSessionsController < ApplicationController
   def index
     if params[:date] and params[:time]
       time = DateTime.parse("#{params[:date]} #{params[:time]}")
-      @conference_sessions = ConferenceSession.all( :conditions => ["datetime(start_time) = datetime(?)", time], :include => :attendees )
+      @conference_sessions = ConferenceSession.all( :conditions => { :start_time => time }, :include => :attendees )
       render 'date_time_index'
     else
       @conference_sessions = ConferenceSession.all(:include => :attendees)
@@ -22,7 +22,7 @@ class ConferenceSessionsController < ApplicationController
     timeslot = (timeslot + timeslot.gmtoff).utc  # Holy hell this is nasty.  Why doesn't Time.utc work like Time.parse?
     render :partial => 'aggregate', 
            :locals => { 
-              :conference_sessions => ConferenceSession.all( :conditions => ["datetime(start_time) = datetime(?)", timeslot] ) 
+              :conference_sessions => ConferenceSession.all( :conditions => { :start_time => timeslot } ) 
            }
   end
 end
