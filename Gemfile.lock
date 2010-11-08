@@ -1,4 +1,12 @@
 GIT
+  remote: git://github.com/collectiveidea/delayed_job.git
+  revision: 229366723decd78551ee4133f5a1cca82df17643
+  specs:
+    delayed_job (2.1.0.pre2)
+      activesupport (~> 3.0)
+      daemons
+
+GIT
   remote: git://github.com/duien/twitter-auth.git
   revision: 2e413f1cd74df2b3c2ac5991d12bc838cdd4cee4
   branch: rails_3
@@ -53,6 +61,7 @@ GEM
     builder (2.1.2)
     configuration (1.1.0)
     crack (0.1.8)
+    daemons (1.1.0)
     diff-lcs (1.1.2)
     erubis (2.6.6)
       abstract (>= 1.0.0)
@@ -138,6 +147,7 @@ PLATFORMS
 
 DEPENDENCIES
   bitly
+  delayed_job!
   haml
   haml-rails
   hassle!

@@ -11,6 +11,7 @@ gem 'sass'
 gem 'icalendar'
 gem 'hassle', :git => 'git://github.com/koppen/hassle.git'
 gem 'bitly'
+gem 'delayed_job', :git => 'git://github.com/collectiveidea/delayed_job.git'
 
 group :development, :test do
   gem 'wirble'
