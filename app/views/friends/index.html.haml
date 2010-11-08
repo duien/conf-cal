@@ -10,9 +10,9 @@
         has signed up for #{friend.conference_sessions.length} sessions
 
 %p
-Anybody you follow on
-%a{:href => "http://www.twitter.com"}the twitters
-will automatically be added here when they join.  Maybe you'd like to make some tweets and get more of your peeps up in this joint?
+  Anybody you follow on
+  %a{:href => "http://www.twitter.com"}the twitters
+  will automatically be added here when they join.  Maybe you'd like to make some tweets and get more of your peeps up in this joint?
 
 %form{ :action => '/twitter/post', :id => 'tweeter' }
   %textarea{ :id => 'tweeter_text', :name => 'text', :rows => 5, :cols => 35, :size => 140 } 

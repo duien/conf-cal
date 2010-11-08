@@ -26,7 +26,7 @@ class User < TwitterAuth::GenericUser
   #
   def update_friends
     begin
-      self.friends = User.find( :all, :conditions => {:twitter_id => self.twitter.get('/friends/ids.json')} )
+      self.friends = User.find( :all, :conditions => {:twitter_id => self.twitter.get('/friends/ids.json').map(&:to_s)} )
       return true
     rescue Exception => e
       logger.error "Could not fetch friends for user #{self.id} from twitter: #{e}"
