@@ -6,13 +6,16 @@
 %ul.features<>
   %li<>
     .text Compare sessions for a time slot
-    = image_tag('compare_sessions.png')
+    .wrapper
+      = image_tag('compare_sessions.png')
   %li<>
     .text See who's going to what
-    = image_tag('see_friends.png')
+    .wrapper
+      = image_tag('see_friends.png')
   %li.full<>
     .text Keep track of the sessions you're going to
-    = image_tag('track_sessions.png')
+    .wrapper
+      = image_tag('track_sessions.png')
 %p.big
   Get started now! You can
   = link_to('browse sessions', conference_sessions_path)
