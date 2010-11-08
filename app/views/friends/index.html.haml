@@ -1,6 +1,10 @@
+- content_for :head do
+  = javascript_include_tag 'charCount'
+  = javascript_include_tag 'friends'
+
 %h1 Your Friends
 - if @friends.empty?
-  %p Soooo... it turns out you don't have any friends.  Sorry, man.  :-(
+  %p.sorry Sorry. It looks like none of your friends have signed up.
 - else
   %ul.friends
     - @friends.each do |friend|
@@ -11,21 +15,13 @@
 
 %p
   Anybody you follow on
-  %a{:href => "http://www.twitter.com"}the twitters
-  will automatically be added here when they join.  Maybe you'd like to make some tweets and get more of your peeps up in this joint?
+  = link_to('Twitter', 'http://www.twitter.com')
+  will show up here when they join. Want to share your schedule and get more friends to join? Tweet about it
 
-%form{ :action => '/twitter/post', :id => 'tweeter' }
+%form#tweeter{ :action => '/twitter/post' }
+  .tweet Type your message
   %textarea{ :id => 'tweeter_text', :name => 'text', :rows => 5, :cols => 35, :size => 140 } 
-    So like you should totally check my RubyConf schedule at http://RubyConfirmate.heroku.com
-  %input{ :id => 'tweeter_button', :type => 'submit', :value => 'Tweet tweet' }
+    See what #rubyconf sessions I'm attending on @rubyconfirmate: #{user_url(current_user)}
+  %input{ :id => 'tweeter_button', :type => 'submit', :value => 'Tweet it!' }
 
-:javascript
-  $(document).ready( function () {
-    console.log($('#tweeter'));
-    $('#tweeter').bind('submit', function (e) {
-      $.post( '/twitter/post', { 'text' : $('#tweeter_text').val() }, function () {
-        $("#tweeter_text").text("Thanks! You done sent a tweet.");
-      });
-      e.preventDefault();
-    });
-  });
+

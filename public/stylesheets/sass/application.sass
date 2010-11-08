@@ -50,13 +50,13 @@ body
           +round(10px)
         &.full
           width: 800px
-    .big
-      font-size: 140%
-      text-align: center
-      padding-top: 25px
-      clear: both
-      a
-        color: darken($gray, 40%)
+.big
+  font-size: 140%
+  text-align: center
+  padding-top: 25px
+  clear: both
+  a
+    color: darken($gray, 40%)
 p
   padding-bottom: 10px
 .navigation
@@ -296,4 +296,46 @@ ul.friends
       padding-right: 10px
     a
       color: darken($gray, 40%)
-    
+p.sorry
+  background: $gray
+  padding: 10px
+  margin: 10px 0
+  overflow: auto
+  +round(10px)
+
+#tweeter
+  position: relative
+  width: 90%
+  margin: 25px auto
+  textarea
+    border-color: darken($gray, 40%)
+    font-family: 'Droid Serif'
+    font-size: 100%
+    width: 100%
+  .tweet, .counter
+    font-family: 'Droid Sans'
+    color: darken($gray, 20%)
+    font-weight: bold
+  .counter
+    position: absolute
+    top: 0
+    right: 0
+    &.warning
+      color: $ruby
+    &.exceeded
+      color: $orange
+  input
+    background: darken($gray, 20%)
+    color: white
+    font-family: 'Droid Sans'
+    font-weight: bold
+    font-size: 120%
+    display: block
+    float: right
+    width: auto
+    border: none
+    +round(5px)
+    padding: 5px
+    &:disabled
+      background: $gray
+      color: darken($gray, 20%)
