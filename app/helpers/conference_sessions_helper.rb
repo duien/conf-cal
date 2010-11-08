@@ -13,9 +13,11 @@ module ConferenceSessionsHelper
       return total_attendees > 0 ? "#{pluralize(total_attendees, 'person')} going" : ''
     end
 
+    friends = current_user.friends
+    friends_attending = (conference_session.attendees - friends - [current_user]).length
+
     attending = conference_session.attendees.include? current_user
     total_attendees = conference_session.attendees.length
-    friends_attending = current_user.friends.attending(conference_session).length
     non_friends_attending = total_attendees - friends_attending
     non_friends_attending -= 1 if attending
 
