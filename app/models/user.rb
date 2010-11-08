@@ -7,7 +7,7 @@ class User < TwitterAuth::GenericUser
 
   scope :attending, lambda { |cs| joins(:attendances).where(:attendances => {:conference_session_id => cs.id}) }
 
-  FRIEND_CACHE_DURATION = 10.minutes
+  FRIEND_CACHE_DURATION = 30.minutes
 
   # Override friends to check the cache and update from Twitter as necessary.
   #

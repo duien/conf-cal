@@ -51,7 +51,8 @@ ConfCal::Application.configure do
     :authorize_path        => "/oauth/authenticate",
     :api_timeout           => 10,
     :remember_for          => 14, # days
-    :base_url              => "http://#{ENV['APIGEE_TWITTER_API_ENDPOINT']}",
+    # :base_url              => "http://#{ENV['APIGEE_TWITTER_API_ENDPOINT']}",
+    :base_url              => 'https://api.twitter.com',
     :oauth_consumer_key    => ENV['OAUTH_CONSUMER_KEY'],
     :oauth_consumer_secret => ENV['OAUTH_CONSUMER_SECRET']
   )
