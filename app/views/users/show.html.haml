@@ -1,6 +1,6 @@
 %h1
   %img{ :src => @user.profile_image_url }
-  = "#{@user.login} (#{@user.name})"
+  = display_name( @user )
 
 - if @user.conference_sessions.empty?
   This user has not selected any conference sessions yet.  Maybe they've been kidnapped?
