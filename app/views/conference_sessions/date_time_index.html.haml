@@ -1,3 +1,5 @@
+- time = @conference_sessions.first.start_time
+
 %h1 Sessions for #{format_time(@conference_sessions.first, :include_day => true)}
 
 - @conference_sessions.each do |session|
@@ -12,7 +14,7 @@
       - if session.attendees.include?(current_user)
         %a.attendance.yes{ :href => '/' } I'm Going
       - else
-        %a.attendance.no{ :href => '/' } Choose this session
+        %a.attendance.no{ :href => 'javascript:void(0)', :onclick => "mark_attending(#{current_user.id}, #{session.id}, '#{time.to_s(:number)}', \"#{conference_sessions_by_date_time_path(params[:date], params[:time])}\")" } Choose this session
   .details
     .description
       = simple_format session.description, {}, :sanitize => false
