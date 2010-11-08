@@ -12,3 +12,21 @@ function mark_attending(uid, csid, time, url) {
     }
   });
 }
+
+function mark_not_attending(aid, time, url) {
+  $.post( "/attendances/" + aid, { "_method": 'DELETE' }, function () { 
+    if(url){
+      window.location.replace(url);
+    }else{
+      $.get("/conference_sessions/for/" + time, function (data) {
+        $("#timeslot_" + time).replaceWith( data );
+      });
+    }
+  });
+}
+
+function send_tweet() {
+  // submit or something
+  $("#tweeter_text").text("Thanks! You done sent a tweet.")
+  return false;
+}

@@ -11,6 +11,7 @@ ConfCal::Application.routes.draw do
 
   match 'friends' => 'friends#index'
   match 'schedule' => 'schedule#index'
+  match 'twitter/post' => 'twitter#post'
 
   # Sample resource route with options:
   #   resources :products do

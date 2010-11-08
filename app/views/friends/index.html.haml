@@ -1,11 +1,6 @@
 %h1 Your Friends
 - if @friends.empty?
   %p Soooo... it turns out you don't have any friends.  Sorry, man.  :-(
-  %p 
-    Maybe you could
-    %a{:href => "http://www.twitter.com"}make a tweet
-    suggesting folks sign up?  Anybody you follow on Twitter who joins
-    RubyConfirmate will automatically be added here.
 - else
   %ul.friends
     - @friends.each do |friend|
@@ -13,6 +8,24 @@
         %img{ :src => friend.profile_image_url }
         = display_name(friend)
         has signed up for #{friend.conference_sessions.length} sessions
-  Anybody you follow on
-  %a{:href => "http://www.twitter.com"}the twitters
-  who joins RubyConfirmate will automatically be added here.
+
+%p
+Anybody you follow on
+%a{:href => "http://www.twitter.com"}the twitters
+will automatically be added here when they join.  Maybe you'd like to make some tweets and get more of your peeps up in this joint?
+
+%form{ :action => '/twitter/post', :id => 'tweeter' }
+  %textarea{ :id => 'tweeter_text', :name => 'text', :rows => 5, :cols => 35, :size => 140 } 
+    So like you should totally check my RubyConf schedule at http://RubyConfirmate.heroku.com
+  %input{ :id => 'tweeter_button', :type => 'submit', :value => 'Tweet tweet' }
+
+:javascript
+  $(document).ready( function () {
+    console.log($('#tweeter'));
+    $('#tweeter').bind('submit', function (e) {
+      $.post( '/twitter/post', { 'text' : $('#tweeter_text').val() }, function () {
+        $("#tweeter_text").text("Thanks! You done sent a tweet.");
+      });
+      e.preventDefault();
+    });
+  });
