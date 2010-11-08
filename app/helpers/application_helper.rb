@@ -10,4 +10,9 @@ module ApplicationHelper
   def current_if_controller( controller_name )
     controller_name == controller.controller_name ? 'current' : nil
   end
+
+  def display_name (user)
+    "#{link_to user.name, user_url(user)} (<a href='http://twitter.com/#{user.login}'>@#{user.login}</a>)"
+  end
+
 end
