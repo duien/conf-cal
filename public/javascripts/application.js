@@ -24,9 +24,3 @@ function mark_not_attending(aid, time, url) {
     }
   });
 }
-
-function send_tweet() {
-  // submit or something
-  $("#tweeter_text").text("Thanks! You done sent a tweet.")
-  return false;
-}
