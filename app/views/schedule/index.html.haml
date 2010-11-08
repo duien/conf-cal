@@ -1,4 +1,8 @@
 %h1 Your Schedule
+%p
+  Download your schedule in
+  = link_to('iCal format', user_path(current_user, :format => 'ics'))
+
 - sessions_by_timeslot(@all_sessions).each do |day, day_sessions|
   %h2= day
   - day_sessions.each do |start, timeslot_sessions|
