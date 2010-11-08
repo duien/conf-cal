@@ -12,7 +12,7 @@ module ApplicationHelper
   end
 
   def display_name (user)
-    "#{link_to user.name, user_url(user)} (<a href='http://twitter.com/#{user.login}'>@#{user.login}</a>)"
+    raw "#{link_to user.name, user_url(user)} (<a href='http://twitter.com/#{user.login}'>@#{user.login}</a>)"
   end
 
 end

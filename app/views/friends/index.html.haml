@@ -11,7 +11,7 @@
     - @friends.each do |friend|
       %li
         %img{ :src => friend.profile_image_url }
-        = raw(display_name(friend))
+        = display_name(friend)
   Anybody you follow on
   %a{:href => "http://www.twitter.com"}the twitters
-  who joins RubyConfirmate will automatically show up on this page.
+  who joins RubyConfirmate will automatically be added here.
