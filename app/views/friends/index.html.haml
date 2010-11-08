@@ -7,11 +7,12 @@
     suggesting folks sign up?  Anybody you follow on Twitter who joins
     RubyConfirmate will automatically be added here.
 - else
-  %ul
+  %ul.friends
     - @friends.each do |friend|
-      %li
+      %li[friend]
         %img{ :src => friend.profile_image_url }
         = display_name(friend)
+        has signed up for #{friend.conference_sessions.length} sessions
   Anybody you follow on
   %a{:href => "http://www.twitter.com"}the twitters
   who joins RubyConfirmate will automatically be added here.

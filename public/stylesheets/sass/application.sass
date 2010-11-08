@@ -260,3 +260,17 @@ img.person
     &.logout
       color: darken($gray, 30%)
       text-decoration: underline
+ul.friends
+  list-style-type: none
+  .user
+    background: $gray
+    padding: 10px
+    margin: 10px
+    overflow: auto
+    +round(10px)
+    img
+      float: left
+      padding-right: 10px
+    a
+      color: darken($gray, 40%)
+    
