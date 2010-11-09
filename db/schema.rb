@@ -10,12 +10,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101108222619) do
+ActiveRecord::Schema.define(:version => 20101109151546) do
 
   create_table "attendances", :force => true do |t|
     t.integer "user_id"
     t.integer "conference_session_id"
   end
+
+  add_index "attendances", ["conference_session_id"], :name => "index_attendances_on_conference_session_id"
+  add_index "attendances", ["user_id"], :name => "index_attendances_on_user_id"
 
   create_table "conference_sessions", :force => true do |t|
     t.string   "summary"
@@ -26,6 +29,8 @@ ActiveRecord::Schema.define(:version => 20101108222619) do
     t.datetime "start_time"
     t.datetime "end_time"
   end
+
+  add_index "conference_sessions", ["start_time", "location"], :name => "index_conference_sessions_on_start_time_and_location"
 
   create_table "delayed_jobs", :force => true do |t|
     t.integer  "priority",   :default => 0
@@ -48,6 +53,8 @@ ActiveRecord::Schema.define(:version => 20101108222619) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "friendships", ["user_id"], :name => "index_friendships_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "twitter_id"
@@ -79,5 +86,7 @@ ActiveRecord::Schema.define(:version => 20101108222619) do
     t.datetime "updated_at"
     t.time     "last_updated_friends"
   end
+
+  add_index "users", ["twitter_id"], :name => "index_users_on_twitter_id"
 
 end
