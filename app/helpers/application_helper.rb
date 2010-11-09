@@ -19,4 +19,8 @@ module ApplicationHelper
     BITLY.shorten( user_url(current_user) ).short_url
   end
 
+  def kramdown_format( description )
+    Kramdown::Document.new(description).to_html
+  end
+
 end

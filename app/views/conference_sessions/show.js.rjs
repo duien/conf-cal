@@ -1,3 +1,3 @@
 page << <<-END
-  $("#conference_session_#{@conference_session.id} > .description").html('#{escape_javascript(simple_format(@conference_session.description, {}, :sanitize => false))}').slideDown();
+  $("#conference_session_#{@conference_session.id} > .description").html('#{escape_javascript(kramdown_format(@conference_session.description))}').slideDown();
 END
