@@ -28,9 +28,9 @@ function mark_not_attending(aid, time, url) {
 $().ready(function() {
   $('.summary a')
     .bind('ajax:before', function(el) {
-      var desc = $(el.target).parents('.option').find('.description:visible');
-      if (desc.length > 0) {
-        desc.slideUp();
+      var desc = $(el.target).parents('.option').find('.description');
+      if (desc.length > 0 && desc.html() != "") {
+        desc.slideToggle();
         return false;
       }
     });
