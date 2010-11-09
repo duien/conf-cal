@@ -27,7 +27,10 @@
     = yield :above_nav
     .navigation
       %ul
-        %li.presentations{ :class => current_if_controller('conference_sessions') }<>
+        %li.home{ :class => current_if_controller('welcome') }<>
+          .block<>
+            = link_to('Home', '/')
+        %li.sessions{ :class => current_if_controller('conference_sessions') }<>
           .block<>
             = link_to('Sessions', '/conference_sessions')
         %li.schedule{ :class => current_if_controller('schedule') }<>

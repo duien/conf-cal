@@ -1,6 +1,7 @@
 !!!
 %html
   %head
+    = stylesheet_link_tag 'application'
     = stylesheet_link_tag 'mobile'
     = stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Droid+Sans:regular,bold&subset=latin'
     = stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Droid+Serif:regular,italic,bold,bolditalic&subset=latin'
@@ -29,14 +30,23 @@
     = yield :above_nav
     .navigation
       %ul
-        %li.presentations{ :class => current_if_controller('conference_sessions') }<>
+        %li.home{ :class => current_if_controller('welcome') }<>
           .block<>
-            = link_to('Sessions', '/conference_sessions')
+            = link_to('', '/')
+        %li.sessions{ :class => current_if_controller('conference_sessions') }<>
+          .block<>
+            = link_to('', '/conference_sessions')
         %li.schedule{ :class => current_if_controller('schedule') }<>
           .block<>
-            = link_to('Schedule', '/schedule')
+            = link_to('', '/schedule')
         %li.friends{ :class => current_if_controller('friends') }<>
           .block<>
-            = link_to('Friends', '/friends')
+            = link_to('', '/friends')
     .main
       = yield
+    - if current_user
+      .current_user
+        .info
+          Logged in as #{display_name current_user}
+          \|
+          = link_to 'Log out', logout_path, :class => 'logout'

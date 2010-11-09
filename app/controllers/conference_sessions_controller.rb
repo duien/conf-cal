@@ -8,6 +8,7 @@ class ConferenceSessionsController < ApplicationController
       time = DateTime.parse("#{params[:date]} #{params[:time]}")
       respond_with(@conference_sessions = ConferenceSession.all( :conditions => { :start_time => time }, :include => :attendees )) do |format|
         format.html { render 'date_time_index' }
+        format.mobile { render 'date_time_index' }
       end
     else
       respond_with(@conference_sessions = ConferenceSession.all(:include => :attendees))

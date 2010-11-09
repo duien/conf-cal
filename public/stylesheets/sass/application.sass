@@ -99,16 +99,24 @@ p
         a:hover
           color: white
 
-      &.presentations a
+      &.home a
+        background-image: url('/images/home.png')
+        &:hover
+          background-image: url('/images/home-black.png')
+      &.sessions.current a:hover
+        background-image: url('/images/presentations.png')
+      &.sessions a
         background-image: url('/images/presentations.png')
         &:hover
           background-image: url('/images/presentations-black.png')
-      &.presentations.current a:hover
+      &.sessions.current a:hover
         background-image: url('/images/presentations.png')
       &.schedule a
         background-image: url('/images/schedule.png')
         &:hover
           background-image: url('/images/schedule-black.png')
+      &.home.current a:hover
+        background-image: url('/images/home.png')
       &.schedule.current a:hover
         background-image: url('/images/schedule.png')
       &.friends a
