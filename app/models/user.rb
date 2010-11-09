@@ -26,6 +26,8 @@ class User < TwitterAuth::GenericUser
   #
   def update_friends
     begin
+      self.last_updated_friends = Time.now
+      self.save!
       self.friends = User.find( :all, :conditions => {:twitter_id => self.twitter.get('/friends/ids.json').map(&:to_s)} )
       return true
     rescue Exception => e
@@ -33,4 +35,6 @@ class User < TwitterAuth::GenericUser
       return false
     end
   end
+
+  handle_asynchronously :update_friends
 end
