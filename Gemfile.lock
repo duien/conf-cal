@@ -16,8 +16,8 @@ GIT
       oauth (>= 0.3.1)
 
 GIT
-  remote: git://github.com/koppen/hassle.git
-  revision: a08c757bce033cebc7ef8a4a3a831127afcb956a
+  remote: git://github.com/kevmoo/hassle.git
+  revision: bd0cd41aaceb002c5364de37d2975d58079f469f
   specs:
     hassle (0.0.1)
       haml
