@@ -11,7 +11,7 @@
       .summary
         = link_to( conference_session.summary, conference_session, :remote => true )
       - if show_controls and current_user
-        = render :partial => 'controls', :locals => {:conference_session => conference_session}
+        = render :partial => 'conference_sessions/controls', :locals => {:conference_session => conference_session}
       .clear
       .description
       .bottom_data
