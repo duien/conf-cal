@@ -1,0 +1,8 @@
+time = @attendance.conference_session.start_time
+ConferenceSession.find_all_by_start_time(time).each do |conference_session|
+  page << <<-END
+    $("#conference_session_#{conference_session.id} .controls").replaceWith('#{escape_javascript(render(:partial => "conference_sessions/controls", :locals => {:conference_session => conference_session}))}');
+    $("#conference_session_#{conference_session.id} .attendees").html('#{escape_javascript(friends_text( conference_session, :hide_self => false ))}');
+  END
+end
+

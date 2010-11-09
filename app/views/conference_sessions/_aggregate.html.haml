@@ -11,11 +11,7 @@
       .summary
         = link_to( conference_session.summary, conference_session, :remote => true )
       - if show_controls and current_user
-        .controls
-          - if conference_session.attendees.include?(current_user)
-            %a.attendance.yes{ :href => 'javascript:void(0)' }
-          - else
-            %a.attendance.no{ :href => 'javascript:void(0)', :onclick => "mark_attending(#{current_user.id}, #{conference_session.id}, '#{time.to_s(:number)}')" }
+        = render :partial => 'controls', :locals => {:conference_session => conference_session}
       .clear
       .description
       .bottom_data

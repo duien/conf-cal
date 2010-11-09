@@ -7,8 +7,10 @@ class AttendancesController < ApplicationController
     respond_to do |format|
       if @attendance.save
         format.json { render :json => @attendance, :status => :created, :location => @attendance }
+        format.js { render :replace_section }
       else
         format.json  { render :json => @attendance.errors, :status => :unprocessable_entity }
+        format.js { head :unprocessable_entity }
       end
     end
   end
@@ -19,6 +21,7 @@ class AttendancesController < ApplicationController
 
     respond_to do |format|
       format.json  { head :ok }
+      format.js { render :replace_section }
     end
   end
 end

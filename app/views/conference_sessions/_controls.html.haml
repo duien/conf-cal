@@ -1,0 +1,11 @@
+.controls
+  - if conference_session.attendees.include?(current_user)
+    = form_for(current_user.attendances.where(:conference_session_id => conference_session).first, :html => {:remote => true, :method => :delete}) do |f|
+      = f.hidden_field :user_id
+      = f.hidden_field :conference_session_id
+      = f.submit "", :class => 'attendance yes'
+  - else
+    = form_for(Attendance.new(:user => current_user, :conference_session => conference_session), :remote => true) do |f|
+      = f.hidden_field :user_id
+      = f.hidden_field :conference_session_id
+      = f.submit "", :class => 'attendance no'

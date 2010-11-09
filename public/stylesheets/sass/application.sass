@@ -199,9 +199,10 @@ img.person
 .controls
   float: right
   width: auto
-  a.attendance
+  .attendance
+    border: none
     display: block
-    padding-right: 32px
+    width: 32px
     height: 32px
     line-height: 38px
     color: darken($gray, 40%)
@@ -214,6 +215,8 @@ img.person
       background-color: $green
       color: white
       +round(5px)
+      &:hover
+        background-image: url('/images/schedule.png')
     &.no
       background: url('/images/schedule.png')
       background-repeat: no-repeat
