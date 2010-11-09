@@ -33,9 +33,5 @@ $().ready(function() {
         desc.slideUp();
         return false;
       }
-    })
-    .bind('ajax:success', function(el, data, status, xhr) {
-      var conference_session = data.conference_session
-      $("#conference_session_" + conference_session.id + " > .description").html(conference_session.description).slideDown();
     });
 });

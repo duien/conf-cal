@@ -9,7 +9,7 @@
   - conference_sessions.each do |conference_session|
     .option{:id => "conference_session_#{conference_session.id}"}
       .summary
-        = link_to( conference_session.summary, conference_session, 'data-type' => :json, :remote => true )
+        = link_to( conference_session.summary, conference_session, :remote => true )
       - if show_controls and current_user
         .controls
           - if conference_session.attendees.include?(current_user)

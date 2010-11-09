@@ -1,6 +1,6 @@
 class ConferenceSessionsController < ApplicationController
 
-  respond_to :json, :except => [ :for ]
+  respond_to :js, :json, :except => [ :for ]
   respond_to :html
 
   def index
