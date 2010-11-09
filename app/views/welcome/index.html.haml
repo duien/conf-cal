@@ -22,5 +22,9 @@
   or
   = succeed '.' do
     = link_to('see who you know', friends_path)
+  %br
+  So far there's #{pluralize User.count, 'person'} here, who've signed up for
+  = succeed '.' do
+    = pluralize Attendance.count, 'session'
 %p
   We'll ask you to log in with your Twitter account so we can connect you with the people you're following. We promise we'll never tweet anything without your permission.
