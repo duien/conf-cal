@@ -27,7 +27,7 @@ function mark_not_attending(aid, time, url) {
 
 $().ready(function() {
   $('.summary a')
-    .bind('ajax:before', function(el) {
+    .live('ajax:before', function(el) {
       var desc = $(el.target).parents('.option').find('.description');
       if (desc.length > 0 && desc.html() != "") {
         desc.slideToggle();
