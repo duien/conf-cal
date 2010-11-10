@@ -6,6 +6,11 @@ class ConferenceSessionsController < ApplicationController
   def index
     if params[:date] and params[:time]
       time = DateTime.parse("#{params[:date]} #{params[:time]}")
+      if current_user
+        @next_timeslot = ConferenceSession.next_unscheduled_timeslot( current_user, time )
+        @prev_timeslot = ConferenceSession.prev_unscheduled_timeslot( current_user, time )
+      end
+
       respond_with(@conference_sessions = ConferenceSession.all( :conditions => { :start_time => time }, :include => :attendees )) do |format|
         format.html { render 'date_time_index' }
         format.mobile { render 'date_time_index' }

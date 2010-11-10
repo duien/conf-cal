@@ -2,6 +2,10 @@
 
 %h1 Sessions for #{format_time(@conference_sessions.first, :include_day => true)}
 
+- if current_user
+  = time_link(@prev_timeslot, "Previous Unscheduled Timeslot") if @prev_timeslot
+  = time_link(@next_timeslot, "Next Unscheduled Timeslot") if @next_timeslot
+
 - @conference_sessions.each do |session|
   .metadata
     .presenters.meta
