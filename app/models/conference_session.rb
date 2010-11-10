@@ -9,14 +9,14 @@ class ConferenceSession < ActiveRecord::Base
   scope :earlier_than,    lambda { |time| where( 'start_time < ?', time ) }
 
   def self.next_unscheduled_timeslot (user, time)
-    unattended_by = "not exists (SELECT 'x' from attendances where conference_session_id = conference_sessions.id and user_id = ?)"
-    sess = later_than(time).where(unattended_by, user.id ).first
-    sess.nil? ? nil : sess.start_time
+    sql = "SELECT min(start_time) FROM conference_sessions cs WHERE start_time > '#{time.to_s(:db)}' AND NOT EXISTS (SELECT 'x' FROM attendances a, conference_sessions cs2 WHERE a.user_id = #{user.id} AND a.conference_session_id = cs2.id AND cs.start_time = cs2.start_time)" 
+    string = ActiveRecord::Base.connection.select_rows(sql).first.first
+    string.nil? ? nil : Time.parse(string)
   end
 
   def self.prev_unscheduled_timeslot (user, time)
-    unattended_by = "not exists (SELECT 'x' from attendances where conference_session_id = conference_sessions.id and user_id = ?)"
-    sess = earlier_than(time).where(unattended_by, user.id ).last
-    sess.nil? ? nil : sess.start_time
+    sql = "SELECT max(start_time) FROM conference_sessions cs WHERE start_time < '#{time.to_s(:db)}' AND NOT EXISTS (SELECT 'x' FROM attendances a, conference_sessions cs2 WHERE a.user_id = #{user.id} AND a.conference_session_id = cs2.id AND cs.start_time = cs2.start_time)" 
+    string = ActiveRecord::Base.connection.select_rows(sql).first.first
+    string.nil? ? nil : Time.parse(string)
   end
 end
