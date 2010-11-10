@@ -3,13 +3,7 @@
 %h1 Sessions for #{format_time(@conference_sessions.first, :include_day => true)}
 
 - if current_user
-  .slot_controls
-    .prev.slot
-      = time_link(@prev_timeslot, raw("&laquo; prev")) if @prev_timeslot
-    .next.slot
-      = time_link(@next_timeslot, raw("next &raquo;")) if @next_timeslot
-    .unscheduled
-      unscheduled
+  = render :partial => 'slot_controls'
 - @conference_sessions.each do |session|
   .metadata
     .presenters.meta
@@ -34,10 +28,4 @@
           - friend_list( session ).each do |friend|
             %li= friend
 - if current_user
-  .slot_controls
-    .prev.slot
-      = time_link(@prev_timeslot, raw("&laquo; prev")) if @prev_timeslot
-    .next.slot
-      = time_link(@next_timeslot, raw("next &raquo;")) if @next_timeslot
-    .unscheduled
-      unscheduled
+  = render :partial => 'slot_controls'
