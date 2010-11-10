@@ -3,9 +3,13 @@
 %h1 Sessions for #{format_time(@conference_sessions.first, :include_day => true)}
 
 - if current_user
-  = time_link(@prev_timeslot, "Previous Unscheduled Timeslot") if @prev_timeslot
-  = time_link(@next_timeslot, "Next Unscheduled Timeslot") if @next_timeslot
-
+  .slot_controls
+    .prev.slot
+      = time_link(@prev_timeslot, raw("&laquo; prev")) if @prev_timeslot
+    .next.slot
+      = time_link(@next_timeslot, raw("next &raquo;")) if @next_timeslot
+    .unscheduled
+      unscheduled
 - @conference_sessions.each do |session|
   .metadata
     .presenters.meta
@@ -29,3 +33,11 @@
         %ul
           - friend_list( session ).each do |friend|
             %li= friend
+- if current_user
+  .slot_controls
+    .prev.slot
+      = time_link(@prev_timeslot, raw("&laquo; prev")) if @prev_timeslot
+    .next.slot
+      = time_link(@next_timeslot, raw("next &raquo;")) if @next_timeslot
+    .unscheduled
+      unscheduled

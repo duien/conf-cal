@@ -132,6 +132,37 @@ h2
   margin-top: 20px
   font-family: 'Droid Sans'
   font-weight: normal
+.slot_controls
+  overflow: auto
+  padding: 0 10px
+  font-family: 'Droid Sans'
+  font-weight: bold
+  font-size: 120%
+  line-height: 150%
+  .unscheduled
+    color: darken($gray, 20%)
+    text-align: center
+    margin: 0 20%
+  .slot
+    background: darken($gray, 20%)
+    width: 20%
+    color: white
+    +round(5px)
+    padding: 0 10px
+    &:hover
+      background: white
+    a
+      color: white
+      text-decoration: none
+      display: block
+      &:hover
+        color: darken($gray, 20%)
+    &.prev
+      float: left
+    &.next
+      float: right
+      text-align: right
+  
 img.person
   vertical-align: text-bottom
 .conference_session
