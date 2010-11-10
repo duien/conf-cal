@@ -1,7 +1,8 @@
-.slot_controls
-  .prev.slot
-    = time_link(@prev_timeslot, raw("&laquo; prev")) if @prev_timeslot
-  .next.slot
-    = time_link(@next_timeslot, raw("next &raquo;")) if @next_timeslot
-  .unscheduled
-    go to unscheduled
+- if @prev_timeslot || @next_timeslot
+  .slot_controls
+    .prev.slot
+      = time_link(@prev_timeslot, raw("&laquo; prev")) if @prev_timeslot
+    .next.slot
+      = time_link(@next_timeslot, raw("next &raquo;")) if @next_timeslot
+    .unscheduled
+      go to unscheduled

@@ -134,20 +134,24 @@ h2
   font-weight: normal
 .slot_controls
   overflow: auto
-  padding: 0 10px
+  margin: 0 10px
+  +round(5px)
   font-family: 'Droid Sans'
-  font-weight: bold
+  // font-weight: bold
   // font-size: 120%
   line-height: 150%
+  background: darken($gray, 20%)
   .unscheduled
-    color: darken($gray, 20%)
+    // color: darken($gray, 20%)
+    color: white
     text-align: center
     margin: 0 20%
   .slot
+    font-weight: bold
     background: darken($gray, 20%)
     width: 10%
     color: white
-    +round(5px)
+    // +round(5px)
     padding: 0 10px
     &:hover
       background: white
@@ -159,9 +163,13 @@ h2
         color: darken($gray, 20%)
     &.prev
       float: left
+      border-right: 1px solid white
+      +round-left(50x)
     &.next
       float: right
       text-align: right
+      border-left: 1px solid white
+      +round-right(50x)
   
 img.person
   vertical-align: text-bottom
