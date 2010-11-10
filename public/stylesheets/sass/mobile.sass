@@ -3,6 +3,11 @@ body
 .controls
   input.attendance
     width: 32px
+  .attendance
+    &.yes:hover
+      background-image: url('/images/schedule-yellow.png')
+    &.no:hover
+      background-image: url('/images/schedule.png')
 .metadata
   .controls
     width: 20%
@@ -16,6 +21,9 @@ body
       float: right
       &:hover
         color: transparent
+      &.no:hover
+        color: transparent
+        
 .details
   .description, .attendees
     float: none
@@ -41,4 +49,11 @@ body.welcome ul.features
     float: none
     width: auto
     padding: 10px
-  
+h1
+  font-size: 200%
+.users
+  .user
+    overflow: auto
+  img.profile
+    float: left
+    padding-right: 10px

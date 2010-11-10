@@ -14,6 +14,16 @@ $yellow: #ffe617
   background: -webkit-gradient(linear, left top, right top, from($start_color), to($end_color)) /* for webkit browsers */
   background: -moz-linear-gradient(left,  $start_color,  $end_color) /* for firefox 3.6+ */
 
+= nav_image($tab)
+  &.#{$tab} a
+    background-image: url('/images/#{$tab}-black.png')
+    &:link, &:visited
+      background-image: url('/images/#{$tab}.png')
+    &:hover, &:active
+      background-image: url('/images/#{$tab}-black.png')
+  &.#{$tab}.current a:hover
+    background-image: url('/images/#{$tab}.png')
+
 address, blockquote, body, center, dir, div, dl, fieldset, form, h1, h2, h3, h4, h5, h6, hr, isindex, menu, noframes, noscript, ol, p, pre, table, ul
   margin: 0
   padding: 0
@@ -99,32 +109,11 @@ p
         a:hover
           color: white
 
-      &.home a
-        background-image: url('/images/home.png')
-        &:hover
-          background-image: url('/images/home-black.png')
-      &.sessions.current a:hover
-        background-image: url('/images/presentations.png')
-      &.sessions a
-        background-image: url('/images/presentations.png')
-        &:hover
-          background-image: url('/images/presentations-black.png')
-      &.sessions.current a:hover
-        background-image: url('/images/presentations.png')
-      &.schedule a
-        background-image: url('/images/schedule.png')
-        &:hover
-          background-image: url('/images/schedule-black.png')
-      &.home.current a:hover
-        background-image: url('/images/home.png')
-      &.schedule.current a:hover
-        background-image: url('/images/schedule.png')
-      &.friends a
-        background-image: url('/images/friends.png')
-        &:hover
-          background-image: url('/images/friends-black.png')
-      &.friends.current a:hover
-        background-image: url('/images/friends.png')
+
+      +nav_image('home')
+      +nav_image('sessions')
+      +nav_image('schedule')
+      +nav_image('friends')
       &.friends .block
         border-right: 1px solid white
 .main
