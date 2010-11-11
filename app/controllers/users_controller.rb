@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  include Icalendar
 
   def show
     @user = User.find params[:id]

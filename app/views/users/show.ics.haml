@@ -1,13 +1,16 @@
 :ruby
-  cal = Icalendar::Calendar.new
-  @user.conference_sessions.each do |cs|
-    cal.event do
-      dtstart     cs.start_time.strftime("%Y%m%dT%H%M%S")   # Holy crap WTF Icalendar can't format a frickin' date AAAUUUUGH
-      dtend       cs.end_time.strftime("%Y%m%dT%H%M%S")
-      summary     cs.summary
-      description cs.description
-      location    cs.location
+  # I managed to make it even more hacky :(
+  # But I think it works. But we have bigger problems
+  tz = ActiveSupport::TimeZone['US/Central']
+  cal = RiCal.Calendar do |cal|
+    @user.conference_sessions.each do |cs|
+      cal.event do
+        dtstart     tz.tzinfo.local_to_utc(cs.start_time)
+        dtend       tz.tzinfo.local_to_utc(cs.end_time)
+        summary     cs.summary
+        description cs.description
+        location    cs.location
+      end
     end
   end
-  cal.publish
-= cal.to_ical.gsub("\r", '')  # Ugh, is there a way to tell Icalendar to use unix instead of DOS line endings?
+= cal.export
