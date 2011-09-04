@@ -4,7 +4,7 @@ namespace :ical do
     require 'open-uri'
 
     cal_stream = open(cal_url)
-    cals = Icalendar.parse(cal_stream)
+    cals = RiCal.parse(cal_stream)
     cal = cals.first
     cal.events.each do |event|
       presentation = ConferenceSession.find_or_create_by_summary(event.summary)
@@ -12,8 +12,8 @@ namespace :ical do
         :uid => event.uid,
         :description => event.description,
         :location => event.location,
-        :start_time => event.start,
-        :end_time => event.end
+        :start_time => event.start_time,
+        :end_time => event.finish_time
       )
       presentation.save
     end
