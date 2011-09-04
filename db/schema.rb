@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101109151546) do
+ActiveRecord::Schema.define(:version => 20110904230427) do
 
   create_table "attendances", :force => true do |t|
     t.integer "user_id"
@@ -31,6 +31,12 @@ ActiveRecord::Schema.define(:version => 20101109151546) do
   end
 
   add_index "conference_sessions", ["start_time", "location"], :name => "index_conference_sessions_on_start_time_and_location"
+
+  create_table "conferences", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "delayed_jobs", :force => true do |t|
     t.integer  "priority",   :default => 0
