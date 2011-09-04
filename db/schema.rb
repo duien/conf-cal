@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110904230427) do
+ActiveRecord::Schema.define(:version => 20110904230640) do
 
   create_table "attendances", :force => true do |t|
     t.integer "user_id"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(:version => 20110904230427) do
     t.string   "presenters"
     t.datetime "start_time"
     t.datetime "end_time"
+    t.integer  "conference_id", :null => false
   end
 
   add_index "conference_sessions", ["start_time", "location"], :name => "index_conference_sessions_on_start_time_and_location"

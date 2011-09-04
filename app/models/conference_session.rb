@@ -3,6 +3,9 @@ class ConferenceSession < ActiveRecord::Base
   has_many :attendances
   has_many :attendees, :through => :attendances, :source => :user, :class_name => 'User'
 
+  belongs_to :conference
+  validates_presence_of :conference
+
   default_scope order(:start_time, :location)
 
   scope :later_than,      lambda { |time| where( 'start_time > ?', time ) }
