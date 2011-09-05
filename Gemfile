@@ -7,7 +7,7 @@ gem 'twitter-auth', :require => 'twitter_auth/engine', :git => 'git://github.com
 gem 'heroku'
 gem 'haml'
 gem 'sass'
-gem 'hassle3'
+gem 'hassle', :git => 'https://github.com/jasoncodes/hassle.git'
 # gem 'icalendar'
 gem 'ri_cal'
 gem 'bitly'
