@@ -10,14 +10,14 @@
       = session.presenters
     .location.meta
       = session.location
-    .summary
-      = session.summary
     - if current_user
       .controls
         - if session.attendees.include?(current_user)
           %a.attendance.yes{ :href => '/' } I'm Going
         - else
           %a.attendance.no{ :href => 'javascript:void(0)', :onclick => "mark_attending(#{current_user.id}, #{session.id}, '#{time.to_s(:number)}', \"#{conference_sessions_by_date_time_path(params[:date], params[:time])}\")" } Choose this session
+    .summary
+      = session.summary
   .details
     .description
       = raw kramdown_format(session.description)
