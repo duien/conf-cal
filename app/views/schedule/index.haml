@@ -4,7 +4,7 @@
   = link_to('iCal format', user_path(current_user, :format => 'ics'))
 
 - sessions_by_timeslot(@all_sessions).each do |day, day_sessions|
-  %h2= day
+  %h2= day.strftime('%A')
   - day_sessions.each do |start, timeslot_sessions|
     - if session = timeslot_sessions.detect{ |s| s.attendees.include? current_user }
       = render :partial => 'conference_sessions/aggregate', :locals => { :conference_sessions => [session], :show_controls => false }
