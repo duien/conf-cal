@@ -72,8 +72,11 @@ body
   clear: both
   a
     color: darken($gray, 40%)
-p
-  padding-bottom: 10px
+.main
+  p, ul, ol
+    padding-bottom: 10px
+  ul, ol
+    margin-left: 2em
 .navigation
   +gradient-horizontal($orange, $yellow)
   border-bottom: 1px solid white
