@@ -6,7 +6,7 @@ class ConferenceSession < ActiveRecord::Base
   belongs_to :conference
   validates_presence_of :conference
 
-  default_scope order(:start_time, :location)
+  default_scope order(:start_time, :location).where(:conference_id => Conference::CURRENT)
 
   scope :later_than,      lambda { |time| where( 'start_time > ?', time ) }
   scope :earlier_than,    lambda { |time| where( 'start_time < ?', time ) }

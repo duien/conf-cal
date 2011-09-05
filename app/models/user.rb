@@ -1,7 +1,8 @@
 class User < TwitterAuth::GenericUser
 
   has_many :attendances
-  has_many :conference_sessions, :through => :attendances
+  has_many :conference_sessions, :through => :attendances,
+           :conditions => { :conference_sessions => { :conference_id => Conference::CURRENT } }
   has_many :friendships
   has_many :friends, :through => :friendships
 
