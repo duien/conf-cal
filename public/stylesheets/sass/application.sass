@@ -28,6 +28,9 @@ address, blockquote, body, center, dir, div, dl, fieldset, form, h1, h2, h3, h4,
   margin: 0
   padding: 0
 
+.center
+  text-align: center
+
 .clear
   clear: both
 
@@ -61,6 +64,7 @@ body
           border: 5px solid white
           overflow: hidden
           opacity: 0.5
+          z-index: 10
           &:hover
             opacity: 1
         &.full
@@ -83,6 +87,7 @@ body
   color: white
   position: fixed
   width: 100%
+  z-index: 100
   ul
     list-style-type: none
     text-align: center
