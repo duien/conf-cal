@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.1'
+gem 'rails', '~> 3.0.1'
 
 gem 'pg'
 gem 'twitter-auth', :require => 'twitter_auth/engine', :git => 'git://github.com/duien/twitter-auth.git', :branch => 'rails_3'
@@ -13,6 +13,7 @@ gem 'ri_cal'
 gem 'bitly'
 gem 'delayed_job'
 gem 'kramdown'
+gem 'hpricot'
 
 group :development, :test do
   gem 'wirble'
