@@ -1,7 +1,11 @@
+= twitter_share_link
+= link_to 'Download iCal', user_path(current_user, :format => 'ics'), :class => 'button-link ical small'
 %h1 Your Schedule
-%p
+-# %p
   Download your schedule in
   = link_to('iCal format', user_path(current_user, :format => 'ics'))
+
+
 
 - sessions_by_timeslot(@all_sessions).each do |day, day_sessions|
   %h2= day.strftime('%A')

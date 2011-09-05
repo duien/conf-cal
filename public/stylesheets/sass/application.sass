@@ -341,6 +341,7 @@ img.person
       color: darken($gray, 30%)
       text-decoration: underline
 ul.friends
+  margin: 0
   list-style-type: none
   .user
     background: $gray
@@ -359,6 +360,39 @@ p.sorry
   margin: 10px 0
   overflow: auto
   +round(10px)
+
+a.button-link
+  display: block
+  +round(39px)
+  padding: 10px 39px 10px 78px
+  height: 58px
+  color: white
+  font-family: 'Droid Sans'
+  font-weight: bold
+  text-decoration: none
+  font-size: 120%
+  line-height: 29px
+  width: 200px
+  text-align: center
+  margin: 0 auto
+  &.small
+    margin-top: 10px
+    margin-left: 20px
+    padding: 5px 15px 5px 39px
+    width: auto
+    float: right
+    height: auto
+    font-size: 100%
+    font-weight: normal
+  &.twitter-share
+    background: url('/images/twitter.png') no-repeat 10px 10px darken($gray, 20%)
+    &.small
+      background: url('/images/twitter-small.png') no-repeat 5px 5px darken($gray, 20%)
+  &.ical.small
+    background: url('/images/ical-small.png') no-repeat 5px 5px darken($gray, 20%)
+  &:hover
+    // background-color: $gray
+    // color: darken($gray, 20%)
 
 #tweeter
   position: relative

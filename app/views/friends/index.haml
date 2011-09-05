@@ -3,6 +3,8 @@
   = javascript_include_tag 'friends'
 
 %h1 Your Friends
+%p Anyone you follow on Twitter will show up here when they join.
+
 - if @friends.empty?
   %p.sorry Sorry. It looks like none of your friends have signed up.
 - else
@@ -13,15 +15,6 @@
         = display_name(friend)
         has signed up for #{friend.conference_sessions.length} sessions
 
-%p
-  Anybody you follow on
-  = link_to('Twitter', 'http://www.twitter.com')
-  will show up here when they join. Want to share your schedule and get more friends to join? Tweet about it!
-
-%form#tweeter{ :action => '/twitter/post' }
-  .tweet Type your message
-  %textarea{ :id => 'tweeter_text', :name => 'text', :rows => 5, :cols => 35, :size => 140 } 
-    See what #rubyconf sessions I'm attending on @rubyconfirmate: #{shorten( user_url(current_user) )}
-  %input{ :id => 'tweeter_button', :type => 'submit', :value => 'Tweet it!' }
-
-
+%p.big
+  Want more friends to join? 
+= twitter_share_button

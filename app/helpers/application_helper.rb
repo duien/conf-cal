@@ -23,4 +23,14 @@ module ApplicationHelper
     Kramdown::Document.new(description).to_html
   end
 
+  def twitter_share_link
+    options = { :text => "See what #rubyconf sessions I'm attending on @rubyconfirmate:", :related => "rubyconfirmate", :url => user_url(current_user) }
+    link_to 'Share your schedule', "http://twitter.com/share?#{URI.encode_www_form(options)}", :class => 'button-link twitter-share small'
+  end
+
+  def twitter_share_button
+    options = { :text => "See what #rubyconf sessions I'm attending on @rubyconfirmate:", :related => "rubyconfirmate", :url => user_url(current_user) }
+    link_to 'Share your schedule on Twitter!', "http://twitter.com/share?#{URI.encode_www_form(options)}", :class => 'button-link twitter-share'
+  end    
+
 end
