@@ -6,7 +6,7 @@
     = time_link(@conference_session.start_time, format_time(@conference_session, :include_day => true))
 .details
   .description
-    = kramdown_format @conference_session.description
+    != kramdown_format @conference_session.description
     -# %pre= @conference_session.description
   .attendees
     - unless @conference_session.attendees.empty? || (@conference_session.attendees.length == 1 and @conference_session.attendees.include? current_user)
